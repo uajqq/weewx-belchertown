@@ -171,7 +171,7 @@
                     metric("outTemp", "max_raw", "maxtime", "maxtime_raw", "temp"),
                     { value: $json.dumps($year.outTemp.max.degree_C.raw), dateText: "$year.outTemp.maxtime", dateRaw: "$year.outTemp.maxtime.raw" },
                     { value: $json.dumps($alltime.outTemp.max.degree_C.raw), dateText: "$alltime.outTemp.maxtime", dateRaw: "$alltime.outTemp.maxtime.raw" },
-                    { hideDatePeriods: ["day"], kind: "temp" }
+                    { kind: "temp" }
                 ),
                 makeRecord(
                     "$obs.label.records_avg_temp",
@@ -185,7 +185,7 @@
                     metric("outTemp", "min_raw", "mintime", "mintime_raw", "temp"),
                     { value: $json.dumps($year.outTemp.min.degree_C.raw), dateText: "$year.outTemp.mintime", dateRaw: "$year.outTemp.mintime.raw" },
                     { value: $json.dumps($alltime.outTemp.min.degree_C.raw), dateText: "$alltime.outTemp.mintime", dateRaw: "$alltime.outTemp.mintime.raw" },
-                    { hideDatePeriods: ["day"], kind: "temp" }
+                    { kind: "temp" }
                 )
             ];
 
@@ -201,14 +201,14 @@
                         metric("appTemp", "max_raw", "maxtime", "maxtime_raw", "temp"),
                         { value: $json.dumps($year.appTemp.max.degree_C.raw), dateText: "$year.appTemp.maxtime", dateRaw: "$year.appTemp.maxtime.raw" },
                         { value: $json.dumps($alltime.appTemp.max.degree_C.raw), dateText: "$alltime.appTemp.maxtime", dateRaw: "$alltime.appTemp.maxtime.raw" },
-                        { hideDatePeriods: ["day"], kind: "temp" }
+                        { kind: "temp" }
                     ),
                     makeRecord(
                         "$obs.label.records_low_apptemp",
                         metric("appTemp", "min_raw", "mintime", "mintime_raw", "temp"),
                         { value: $json.dumps($year.appTemp.min.degree_C.raw), dateText: "$year.appTemp.mintime", dateRaw: "$year.appTemp.mintime.raw" },
                         { value: $json.dumps($alltime.appTemp.min.degree_C.raw), dateText: "$alltime.appTemp.mintime", dateRaw: "$alltime.appTemp.mintime.raw" },
-                        { hideDatePeriods: ["day"], kind: "temp" }
+                        { kind: "temp" }
                     )
                 );
                 #end if
@@ -221,14 +221,14 @@
                     metric("heatindex", "max_raw", "maxtime", "maxtime_raw", "temp"),
                     { value: $json.dumps($year.heatindex.max.degree_C.raw), dateText: "$year.heatindex.maxtime", dateRaw: "$year.heatindex.maxtime.raw" },
                     { value: $json.dumps($alltime.heatindex.max.degree_C.raw), dateText: "$alltime.heatindex.maxtime", dateRaw: "$alltime.heatindex.maxtime.raw" },
-                    { hideDatePeriods: ["day"], kind: "temp" }
+                    { kind: "temp" }
                 ),
                 makeRecord(
                     "$obs.label.records_low_windchill",
                     metric("windchill", "max_raw", "maxtime", "maxtime_raw", "temp"),
                     { value: $json.dumps($year.windchill.min.degree_C.raw), dateText: "$year.windchill.mintime", dateRaw: "$year.windchill.mintime.raw" },
                     { value: $json.dumps($alltime.windchill.min.degree_C.raw), dateText: "$alltime.windchill.mintime", dateRaw: "$alltime.windchill.mintime.raw" },
-                    { hideDatePeriods: ["day"], kind: "temp" }
+                    { kind: "temp" }
                 ),
                 ## NOTE: the two "temperature range" rows below are driven by a
                 ## custom search-list-extension (year_outTemp_range_max etc.)
@@ -284,7 +284,7 @@
                     metric("wind", "max_raw", "maxtime", "maxtime_raw", "speed"),
                     { value: $json.dumps($year.wind.max.meter_per_second.raw), dateText: "$year.windGust.maxtime", dateRaw: "$year.windGust.maxtime.raw" },
                     { value: $json.dumps($alltime.wind.max.meter_per_second.raw), dateText: "$alltime.windGust.maxtime", dateRaw: "$alltime.windGust.maxtime.raw" },
-                    { hideDatePeriods: ["day"], kind: "speed" }
+                    { kind: "speed" }
                 )
             ];
 
@@ -335,7 +335,7 @@
                             metric("rain", "max_raw", "maxtime", "maxtime_raw", "rainrate"),
                             { value: $json.dumps($year.rainRate.max.mm_per_hour.raw), dateText: "$year.rainRate.maxtime", dateRaw: "$year.rainRate.maxtime.raw" },
                             { value: $json.dumps($alltime.rainRate.max.mm_per_hour.raw), dateText: "$alltime.rainRate.maxtime", dateRaw: "$alltime.rainRate.maxtime.raw" },
-                            { hideDatePeriods: ["day"], kind: "rainrate" }
+                            { kind: "rainrate" }
                         ),
                         makeRecord(
                             "$obs.label.records_month_high_rainfall",
@@ -396,28 +396,28 @@
                             metric("humidity", "max", "maxtime", "maxtime_raw"),
                             { value: "$year.outHumidity.max", dateText: "$year.outHumidity.maxtime", dateRaw: "$year.outHumidity.maxtime.raw" },
                             { value: "$alltime.outHumidity.max", dateText: "$alltime.outHumidity.maxtime", dateRaw: "$alltime.outHumidity.maxtime.raw" },
-                            { hideDatePeriods: ["day"] }
+                            {}
                         ),
                         makeRecord(
                             "$obs.label.records_lowest_humidity",
                             metric("humidity", "min", "mintime", "mintime_raw"),
                             { value: "$year.outHumidity.min", dateText: "$year.outHumidity.mintime", dateRaw: "$year.outHumidity.mintime.raw" },
                             { value: "$alltime.outHumidity.min", dateText: "$alltime.outHumidity.mintime", dateRaw: "$alltime.outHumidity.mintime.raw" },
-                            { hideDatePeriods: ["day"] }
+                            {}
                         ),
                         makeRecord(
                             "$obs.label.records_highest_dewpoint",
                             metric("dewpoint", "max_raw", "maxtime", "maxtime_raw", "temp"),
                             { value: $json.dumps($year.dewpoint.max.degree_C.raw), dateText: "$year.dewpoint.maxtime", dateRaw: "$year.dewpoint.maxtime.raw" },
                             { value: $json.dumps($alltime.dewpoint.max.degree_C.raw), dateText: "$alltime.dewpoint.maxtime", dateRaw: "$alltime.dewpoint.maxtime.raw" },
-                            { hideDatePeriods: ["day"], kind: "temp" }
+                            { kind: "temp" }
                         ),
                         makeRecord(
                             "$obs.label.records_lowest_dewpoint",
                             metric("dewpoint", "min_raw", "mintime", "mintime_raw", "temp"),
                             { value: $json.dumps($year.dewpoint.min.degree_C.raw), dateText: "$year.dewpoint.mintime", dateRaw: "$year.dewpoint.mintime.raw" },
                             { value: $json.dumps($alltime.dewpoint.min.degree_C.raw), dateText: "$alltime.dewpoint.mintime", dateRaw: "$alltime.dewpoint.mintime.raw" },
-                            { hideDatePeriods: ["day"], kind: "temp" }
+                            { kind: "temp" }
                         )
                     ]
                 },
@@ -431,14 +431,14 @@
                             metric("barometer", "max_raw", "maxtime", "maxtime_raw", "press"),
                             { value: $json.dumps($year.barometer.max.hPa.raw), dateText: "$year.barometer.maxtime", dateRaw: "$year.barometer.maxtime.raw" },
                             { value: $json.dumps($alltime.barometer.max.hPa.raw), dateText: "$alltime.barometer.maxtime", dateRaw: "$alltime.barometer.maxtime.raw" },
-                            { hideDatePeriods: ["day"], kind: "press" }
+                            { kind: "press" }
                         ),
                         makeRecord(
                             "$obs.label.records_low_barometer",
                             metric("barometer", "min_raw", "mintime", "mintime_raw", "press"),
                             { value: $json.dumps($year.barometer.min.hPa.raw), dateText: "$year.barometer.mintime", dateRaw: "$year.barometer.mintime.raw" },
                             { value: $json.dumps($alltime.barometer.min.hPa.raw), dateText: "$alltime.barometer.mintime", dateRaw: "$alltime.barometer.mintime.raw" },
-                            { hideDatePeriods: ["day"], kind: "press" }
+                            { kind: "press" }
                         )
                     ]
                 }
@@ -455,7 +455,7 @@
                             metric("uv", "max", "maxtime", "maxtime_raw"),
                             { value: "$year.UV.max", dateText: "$year.UV.maxtime", dateRaw: "$year.UV.maxtime.raw" },
                             { value: "$alltime.UV.max", dateText: "$alltime.UV.maxtime", dateRaw: "$alltime.UV.maxtime.raw" },
-                            { hideDatePeriods: ["day"] }
+                            {}
                         )
                     );
                 }
@@ -469,7 +469,7 @@
                             metric("solar_radiation", "max", "maxtime", "maxtime_raw"),
                             { value: "$year.radiation.max", dateText: "$year.radiation.maxtime", dateRaw: "$year.radiation.maxtime.raw" },
                             { value: "$alltime.radiation.max", dateText: "$alltime.radiation.maxtime", dateRaw: "$alltime.radiation.maxtime.raw" },
-                            { hideDatePeriods: ["day"] }
+                            {}
                         )
                     );
                 }

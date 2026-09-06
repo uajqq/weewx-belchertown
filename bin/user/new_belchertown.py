@@ -5849,7 +5849,6 @@ class getData(SearchList):
         belchertown_locale = extras_dict["belchertown_locale"]
         if belchertown_locale == "auto":
             try:
-                locale.setlocale(locale.LC_ALL, "")
                 system_locale, locale_encoding = locale.getlocale()
             except Exception:
                 system_locale, locale_encoding = None, None
